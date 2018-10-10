@@ -3,16 +3,12 @@
 			Якщо код символа парний - виведіть цей символ і його код в консоль за допомогою console.error,
 			інакше - за допомогою console.warn. */
 
-	let name = prompt("Введіть ім'я:");
-	if (name === null) name = '';
+	let bestName = prompt("Введіть ім'я:");
+	if (bestName === null) bestName = '';
 
 	let i = 0;
-	while (i < name.length){
-		// if (name[i].charCodeAt() % 2) console.warn(name[i]);
-		// else console.error(name[i]);
-
-		console[name[i].charCodeAt() % 2 ? 'warn' : 'error'](name[i]);
-
+	while (i < bestName.length){
+		console[bestName[i].charCodeAt() % 2 ? 'warn' : 'error'](bestName[i]);
 		i++;
 	}
 
@@ -47,6 +43,7 @@ let k = 1;
 	alert(s);
 
 /* 5. Виведіть в консоль 10 випадкових чисел від 0 до 1. Використайте групування в консолі. */
+
 	console.groupCollapsed('Вивід 10 випадкових чисел від 0 до 1');
 		for (let i = 0; i < 10; i++){
 			console.log(Math.random());
@@ -54,7 +51,7 @@ let k = 1;
 	console.groupEnd();
 
 /* 6. Створіть циклом строку з не менше 17 букв, що повторюються: "сода" (содасодасода...). Виведіть в консоль.
-// Виведіть в консоль строку, в якій всі букви "с" будуть замінені на букву "в". */ 
+ Виведіть в консоль строку, в якій всі букви "с" будуть замінені на букву "в". */ 
 
 	let str = '';
 	while (str.length < 17) {
@@ -69,3 +66,62 @@ let k = 1;
 	}
 	console.log(`Строка, в якій всі букви "с" будуть замінені на букву "в": ${str}`);
 
+/* 7. Порахуйте циклом кількість букв "о" у наступному виразі:
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+	sed do eiusmod tempor incididunt ut labore et dolore. */
+
+	let templateStr = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.';
+	let count = 0;
+
+	for (let i = 0; i < templateStr.length; i++){
+		if (templateStr[i] === 'o'){
+			count++;
+		}
+	}
+
+	console.log('Кількість літер o: ' + count);
+
+/* 8. Створіть функцію, що видає випадкове число від 50 до 100.
+	Виведіть в консоль 20 випадкових чисел за допомогою цієї функції.
+	Використайте групування в консолі. */
+
+	function getRandomMinMax(min, max) {
+		let result = '';
+		let i = 0;
+		console.groupCollapsed('Результати виклику функції, що видає випадкове число від 50 до 100');
+		while (i < 20) {
+			console.log(Math.floor(Math.random() * (max - min + 1)) + min);
+			i++;
+		}
+		console.groupEnd();
+	}
+
+	getRandomMinMax(50, 100);
+
+/* 9.	Створіть функцію, яка повертатиме дану їй строку задом наперед. 
+	За допомогою неї виведіть в консоль ваше ім'я: */
+
+	function returnName(str){
+		let result = '';
+		for(let i = str.length - 1; i >= 0; i--){
+			result += str[i];
+		}
+		return console.log(`Строка ${str} задом наперед: ${result}`);
+	}
+
+	returnName('Андрій');
+
+/* 10.	Дано функцію, яка "з сервера" присилає дані про випадкового користувача:
+	Виведіть в консоль вік Маші, наприклад: Маша: 17 років. */
+
+	let name, age;
+	function getUser(){
+	  let users = ['Коля','Іра','Льоша','Маша','Грыша','Пєтя','Гоша','Аня','Свєта','Іван'];
+	  let ages = ['19','21','14','18','27','22','18','21','24','31'];
+	  let n = Math.floor(Math.random()*10);
+	  name = users[n];
+	  age = ages[n];
+	}
+
+	getUser();
+	console.log(name + ': ' + age + ' років.');
