@@ -12,10 +12,9 @@
 		i++;
 	}
 
-
 // 2. Виводьте в консоль квадрати чисел 1, 2, 3, 4..., останній квадрат повинен бути більшим за 2100.
-let sqrtResult;
-let k = 1;
+	let sqrtResult;
+	let k = 1;
 
 	console.groupCollapsed('Квадрати чисел 1, 2, 3, 4...');
 	do {
@@ -85,18 +84,17 @@ let k = 1;
 	Виведіть в консоль 20 випадкових чисел за допомогою цієї функції.
 	Використайте групування в консолі. */
 
-	function getRandomMinMax(min, max) {
-		let result = '';
-		let i = 0;
-		console.groupCollapsed('Результати виклику функції, що видає випадкове число від 50 до 100');
-		while (i < 20) {
-			console.log(Math.floor(Math.random() * (max - min + 1)) + min);
-			i++;
-		}
-		console.groupEnd();
+	function getRandomNumbers() {
+		return Math.floor(Math.random() * 51) + 50;
 	}
 
-	getRandomMinMax(50, 100);
+	console.groupCollapsed('Результати виклику функції, що видає випадкове число від 50 до 100');
+	let j = 0;
+	while (j < 20) {
+		console.log(getRandomNumbers());
+		j++;
+	}
+	console.groupEnd();
 
 /* 9.	Створіть функцію, яка повертатиме дану їй строку задом наперед. 
 	За допомогою неї виведіть в консоль ваше ім'я: */
@@ -123,5 +121,12 @@ let k = 1;
 	  age = ages[n];
 	}
 
-	getUser();
-	console.log(name + ': ' + age + ' років.');
+	while (1){
+		getUser();
+		if (name === 'Маша'){
+			console.log(name + ': ' + age + ' років.');
+		} else {
+			console.log(`Ім'я користувача: ${name}`);
+		}
+		break;
+	}
